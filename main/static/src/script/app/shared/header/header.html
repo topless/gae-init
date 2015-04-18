@@ -7,21 +7,26 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="" class="navbar-brand" ng-click="header.gotoWelcome()">
+      <a ng-click="header.goto(header.buttons.welcome.url)" class="navbar-brand">
         {{header.CONFIG_DB.brand_name}}
       </a>
     </div>
+
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <li>
-          <a href="" ng-click="header.gotoFeedback()">
+        <li class="{{header.buttons.feedback.active}}" ng-show="header.CONFIG_DB.feedback_email">
+          <a ng-click="header.goto(header.buttons.feedback.url)">
             <span class="fa fa-comment"></span> Feedback
           </a>
         </li>
       </ul>
+
+      <!-- Show only if user is signed in -->
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="">User Menu</a>
+          <a ng-click="header.openSigninModal()">
+            <span class="fa fa-sign-in"></span> Sign in
+          </a>
         </li>
       </ul>
     </nav>
