@@ -10,21 +10,6 @@ from main import app
 import logging
 import json
 
-###############################################################################
-# Welcome
-###############################################################################
-@app.route('/')
-@app.route('/<path:path>')
-def welcome(path=None):
-  user_db = auth.current_user_db()
-  # if not user_db:
-  #   return flask.redirect(flask.url_for('signin'))
-
-  return flask.render_template('base.html',
-    config_db=restful.marshal(config.CONFIG_DB, model.Config.FIELDS),
-    **auth.urls_for_oauth('/')
-  )
-
 
 ###############################################################################
 # Sitemap stuff
@@ -46,3 +31,19 @@ def sitemap():
 def warmup():
   # TODO: put your warmup code here
   return 'success'
+
+
+###############################################################################
+# Welcome
+###############################################################################
+@app.route('/')
+@app.route('/<path:path>')
+def welcome(path=None):
+  # user_db = auth.current_user_db()
+  # if not user_db:
+  #   return flask.redirect(flask.url_for('signin'))
+
+  return flask.render_template('base.html',
+    config_db=restful.marshal(config.CONFIG_DB, model.Config.FIELDS),
+    **auth.urls_for_oauth('/')
+  )

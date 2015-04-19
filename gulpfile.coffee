@@ -113,9 +113,7 @@ gulp.task 'style', false, ->
 gulp.task 'templates', ->
   gulp.src(paths.templates)
     .pipe $.plumber(errorHandler: onError)
-    .pipe $.ngTemplates(
-      module: 'app'
-    )
+    .pipe $.ngTemplates(module: 'app')
     .pipe gulp.dest("#{dir_build}/script/app")
 
 
@@ -258,7 +256,7 @@ gulp.task 'zip', false, ->
 gulp.task 'deploy', 'Deploying your project on Google App Engine', ->
   $.sequence('build', 'min') ->
     gulp.src('run.py').pipe $.start [
-        {match: /run.py$/, cmd: 'appcfg.py update main --skip_sdk_update_check --application=topless-pro --version=gae'}
+        {match: /run.py$/, cmd: 'appcfg.py update main --skip_sdk_update_check --application=topless-pro --version=stage'}
       ]
 
 

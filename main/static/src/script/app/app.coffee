@@ -19,8 +19,8 @@ class Routes extends Config
         templateUrl: 'components/feedback/feedback.html'
         controller: 'feedbackController'
         controllerAs: 'feedback'
-      # .otherwise
-      #   redirectTo: '/'
+      .otherwise
+        redirectTo: '/'
 
 
 class Location extends Config

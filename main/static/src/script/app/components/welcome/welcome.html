@@ -1,27 +1,16 @@
 <div class="jumbotron">
   <div class="container">
-    <h1>{{welcome.CONFIG_DB.brand_name}}</h1>
-    <p>Hello, world!</p>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <h2>Heading</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <h2>Heading</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <h2>Heading</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-    <div class="col-sm-6 col-md-12 col-lg-3">
-      <h2>Heading</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
+    <h3 class="top-brand col-md-4 col-lg-4 col-sm-6">
+      <span>{{welcome.CONFIG_DB.brand_name}}</span>
+      <small>Chris&nbsp;Topaloudis</small>
+    </h3>
+    <h2 class="col-md-8 col-lg-8 col-sm-6 pull-right">
+      <ul class="cv-list">
+        <li ng-repeat="btn in welcome.cvButtons" >
+          <a href="https://{{btn.url}}" title="{{btn.title}}" target="_blank">
+            <i class="fa fa-{{btn.icon}}"></i></a>
+        </li>
+      </ul>
+    </h2>
   </div>
 </div>

@@ -2,7 +2,7 @@
 # import 'macro/forms.html' as forms
 
 # block admin_content
-  <form method="POST" action="." novalidate>
+  <form method="POST" action="{{url_for('admin_config')}}" novalidate>
     <div class="row">
       <fieldset class="col-sm-6">
         {{form.csrf_token}}
