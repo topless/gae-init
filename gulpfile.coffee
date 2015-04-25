@@ -256,7 +256,7 @@ gulp.task 'zip', false, ->
 gulp.task 'deploy', 'Deploying your project on Google App Engine', ->
   $.sequence('build', 'min') ->
     gulp.src('run.py').pipe $.start [
-        {match: /run.py$/, cmd: 'appcfg.py update main --skip_sdk_update_check --application=topless-pro --version=stage'}
+        {match: /run.py$/, cmd: 'appcfg.py update main --skip_sdk_update_check --application=topless-pro --version=prod'}
       ]
 
 

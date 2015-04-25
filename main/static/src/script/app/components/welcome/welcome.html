@@ -1,10 +1,8 @@
 <div class="jumbotron">
-  <div class="container">
-    <h3 class="top-brand col-md-4 col-lg-4 col-sm-6">
-      <span>{{welcome.CONFIG_DB.brand_name}}</span>
-      <small>Chris&nbsp;Topaloudis</small>
-    </h3>
-    <h2 class="col-md-8 col-lg-8 col-sm-6 pull-right">
+  <div class="container text-center">
+    <h3 class="top-brand"><small>{{welcome.CONFIG_DB.brand_name}}</small></h3>
+    <h3 class="top-brand">Christos&nbsp;Topaloudis</h3>
+    <h2>
       <ul class="cv-list">
         <li ng-repeat="btn in welcome.cvButtons" >
           <a href="https://{{btn.url}}" title="{{btn.title}}" target="_blank">
