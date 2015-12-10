@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="{% block html_class %}{{html_class}}{% endblock %}" lang="en">
+  <head>
+    # include 'bit/meta.html'
+    <title>
+      # block title
+        {{title + ' |' if title}}
+      # endblock
+      {{config.CONFIG_DB.brand_name}}
+    </title>
+    # include 'bit/style.html'
+    # block head
+    # endblock
+    # include 'bit/analytics.html'
+    <base href="/">
+  </head>
+
+  <body ng-app="app">
+    <div app-header class="hide"></div>
+    <div ng-view></div>
+    <div app-footer class="hide"></div>
+    {{flask_util_js.js}}
+    # include 'bit/script.html'
+  </body>
+</html>

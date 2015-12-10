@@ -7,8 +7,30 @@ import config
 import auth
 import model
 from main import app
-import logging
-import json
+
+
+###############################################################################
+# Welcome
+###############################################################################
+# @app.route('/')
+# def welcome(path=None):
+#   user_db = auth.current_user_db()
+#   if not user_db:
+#     return flask.redirect(flask.url_for('signin'))
+#
+#   return flask.render_template('welcome.html', html_class='welcome')
+#
+#
+# @app.route('/ang')
+# def ang(path=None):
+#   user_db = auth.current_user_db()
+#   if not user_db:
+#     return flask.redirect(flask.url_for('signin'))
+#
+#   return flask.render_template(
+#     'index.html',
+#     config_db=restful.marshal(config.CONFIG_DB, model.Config.FIELDS),
+#   )
 
 
 ###############################################################################
@@ -33,9 +55,9 @@ def warmup():
   return 'success'
 
 
-###############################################################################
-# Welcome
-###############################################################################
+# ###############################################################################
+# # Welcome
+# ###############################################################################
 @app.route('/')
 @app.route('/<path:path>')
 def welcome(path=None):
@@ -43,7 +65,8 @@ def welcome(path=None):
   # if not user_db:
   #   return flask.redirect(flask.url_for('signin'))
 
-  return flask.render_template('base.html',
+  return flask.render_template(
+    'index.html',
     config_db=restful.marshal(config.CONFIG_DB, model.Config.FIELDS),
     **auth.urls_for_oauth('/')
   )

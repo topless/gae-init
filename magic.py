@@ -63,7 +63,8 @@ def make_dirs(directory):
 
 
 def append_to(project_url, destination):
-  response = urllib2.urlopen('%smagic/%s' % (project_url, destination))
+  url = ('%smagic/%s' % (project_url, destination)).replace('\\', '/')
+  response = urllib2.urlopen(url)
   if response.getcode() == 200:
     with open(destination, 'r') as dest:
       lines = ''.join(dest.readlines())
@@ -78,7 +79,8 @@ def append_to(project_url, destination):
 
 
 def insert_to(project_url, destination, find_what, indent=0):
-  response = urllib2.urlopen('%smagic/%s' % (project_url, destination))
+  url = ('%smagic/%s' % (project_url, destination)).replace('\\', '/')
+  response = urllib2.urlopen(url)
   if response.getcode() == 200:
     with open(destination, 'r') as dest:
       dest_contents = dest.readlines()
@@ -104,10 +106,11 @@ def insert_to(project_url, destination, find_what, indent=0):
 
 
 def create_file(project_url, destination):
-  response = urllib2.urlopen('%smagic/%s' % (project_url, destination))
+  url = ('%smagic/%s' % (project_url, destination)).replace('\\', '/')
+  response = urllib2.urlopen(url)
   if response.getcode() == 200:
     with open(destination, 'w') as dest:
-      dest.write(HTMLParser().unescape(response.read()))
+      dest.write('%s\n' % HTMLParser().unescape(response.read()))
       print_out('CREATE', destination)
 
 
@@ -124,7 +127,6 @@ def get_project_db():
 
 
 def sync_from_magic():
-    project_db = ''
     model_dbs = ''
 
     project_url = get_project_url()

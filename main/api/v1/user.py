@@ -14,8 +14,8 @@ import util
 from main import api_v1
 
 
-@api_v1.resource('/user/', endpoint='api.user.list')
-class UserListAPI(restful.Resource):
+@api_v1.resource('/admin/user/', endpoint='api.admin.user.list')
+class AdminUserListAPI(restful.Resource):
   @auth.admin_required
   def get(self):
     user_keys = util.param('user_keys', list)
@@ -24,8 +24,8 @@ class UserListAPI(restful.Resource):
       user_dbs = ndb.get_multi(user_db_keys)
       return helpers.make_response(user_dbs, model.User.FIELDS)
 
-    user_dbs, user_cursor = model.User.get_dbs()
-    return helpers.make_response(user_dbs, model.User.FIELDS, user_cursor)
+    user_dbs, cursors = model.User.get_dbs(prev_cursor=True)
+    return helpers.make_response(user_dbs, model.User.FIELDS, cursors)
 
   @auth.admin_required
   def delete(self):
@@ -40,8 +40,8 @@ class UserListAPI(restful.Resource):
       })
 
 
-@api_v1.resource('/user/<string:user_key>/', endpoint='api.user')
-class UserAPI(restful.Resource):
+@api_v1.resource('/admin/user/<string:user_key>/', endpoint='api.admin.user')
+class AdminUserAPI(restful.Resource):
   @auth.admin_required
   def get(self, user_key):
     user_db = ndb.Key(urlsafe=user_key).get()
@@ -54,7 +54,7 @@ class UserAPI(restful.Resource):
     user_db = ndb.Key(urlsafe=user_key).get()
     if not user_db:
       helpers.make_not_found_exception('User %s not found' % user_key)
-    user_db.key.delete()
+    delete_user_dbs([user_db.key])
     return helpers.make_response(user_db, model.User.FIELDS)
 
 

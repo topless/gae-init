@@ -80,7 +80,7 @@ FILE_UPDATE = os.path.join(DIR_TEMP, 'update.json')
 # Other global variables
 ###############################################################################
 CORE_VERSION_URL = 'https://gae-init.appspot.com/_s/version/'
-INERNET_TEST_URL = 'https://www.google.com'
+INTERNET_TEST_URL = 'https://www.google.com'
 REQUIREMENTS_URL = 'http://docs.gae-init.appspot.com/requirement/'
 
 
@@ -171,7 +171,7 @@ def install_py_libs():
 
   exec_pip_commands('pip install -q -r %s' % FILE_REQUIREMENTS)
 
-  exclude_ext = ['.pth', '.pyc', '.egg-info', '.dist-info']
+  exclude_ext = ['.pth', '.pyc', '.egg-info', '.dist-info', '.so']
   exclude_prefix = ['setuptools-', 'pip-', 'Pillow-']
   exclude = [
       'test', 'tests', 'pip', 'setuptools', '_markerlib', 'PIL',
@@ -262,7 +262,7 @@ def print_out_update(force_show=False):
 ###############################################################################
 def internet_on():
   try:
-    urllib2.urlopen(INERNET_TEST_URL, timeout=2)
+    urllib2.urlopen(INTERNET_TEST_URL, timeout=2)
     return True
   except (urllib2.URLError, socket.timeout):
     return False

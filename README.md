@@ -1,6 +1,8 @@
 gae-init
 ========
 
+[![Slack Status](https://gae-init-slack.herokuapp.com/badge.svg)](https://gae-init-slack.herokuapp.com)
+
 **gae-init** is the easiest way to kick start new applications on Google
 App Engine using Flask, Bootstrap and tons of other cool features.
 
@@ -34,7 +36,7 @@ Initializing or Reseting the project
 
 If something goes wrong you can always do:
 
-    $ gulp init
+    $ gulp reset
     $ npm install
     $ gulp
 
@@ -47,11 +49,10 @@ To install [Gulp][] as a global package:
 Deploying on Google App Engine
 ------------------------------
 
-Before deploying make sure that the `app.yaml` and `config.py` are up to date
-and you ran the `gulp` to build and minify all the related files:
+    $ gulp deploy
 
-    $ gulp build
-    $ appcfg.py update main
+Before deploying make sure that the `main/app.yaml` and `gulp/config.coffee`
+are up to date.
 
 Tech Stack
 ----------
@@ -70,7 +71,10 @@ Requirements
 
   - [Google App Engine SDK for Python][]
   - [Node.js][], [pip][], [virtualenv][]
-  - [OSX][] or [Linux][] or [Windows][]
+  - [OS X][] or [Linux][] or [Windows][]
+  
+Make sure you have all of the above or refer to the docs on how to
+[install the requirements](http://docs.gae-init.appspot.com/requirement/).
 
 Contributions and Ideas
 -----------------------
@@ -118,7 +122,7 @@ Author
 [node.js]: http://nodejs.org/
 [nprogress]: http://ricostacruz.com/nprogress/
 [openid]: http://en.wikipedia.org/wiki/OpenID
-[osx]: http://www.apple.com/osx/
+[os x]: http://www.apple.com/osx/
 [pip]: http://www.pip-installer.org/
 [python 2.7]: https://developers.google.com/appengine/docs/python/python27/using27
 [social buttons]: http://lipis.github.io/bootstrap-social/

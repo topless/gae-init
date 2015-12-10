@@ -18,7 +18,7 @@
         {{utils.filter_by_link('limit', 64)}}
         {{utils.filter_by_link('limit', 128)}}
         {{utils.filter_by_link('limit', 512)}}
-        {{utils.filter_by_link('limit', 1024)}}
+        {{utils.filter_by_link('limit', -1, label='&infin;')}}
       </div>
 
       <div class="btn-group btn-group-sm">
@@ -58,7 +58,7 @@
         <ul class="dropdown-menu">
           <li>
             <a id="user-delete"
-                data-api-url="{{url_for('api.user.list')}}"
+                data-api-url="{{url_for('api.admin.user.list')}}"
                 data-confirm="Are you sure you want to delete {users} selected user(s)?"
                 data-success="{users} user(s) deleted."
                 data-error="Something went wrong while deleting. Please try again."
@@ -142,5 +142,5 @@
     </table>
   </div>
 
-  {{utils.next_link(next_url)}}
+  {{utils.next_link(next_url, prev_url)}}
 # endblock

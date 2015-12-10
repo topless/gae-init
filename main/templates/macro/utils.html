@@ -18,7 +18,7 @@
     # if icon
       <span class="fa fa-fw fa-{{icon}}"></span>
     # elif label
-      {{label}}
+      {{label|safe}}
     # else
       {{value}}
     # endif
@@ -31,10 +31,15 @@
 # endmacro
 
 
-# macro next_link(next_url, caption)
-  # if next_url
+# macro next_link(next_url, prev_url=None, next_caption='', prev_caption='')
+  # if next_url or prev_url
     <ul class="pager">
-      <li><a href="{{next_url}}" rel="nofollow" target="_self">{{caption|safe if caption else 'Next Page'}}</a></li>
+      # if prev_url
+        <li><a href="{{prev_url}}" rel="nofollow"><span class="fa fa-long-arrow-left"></span> {{prev_caption|safe if prev_caption else 'Prev Page'}}</a></li>
+      # endif
+      # if next_url
+        <li><a href="{{next_url}}" rel="nofollow">{{next_caption|safe if next_caption else 'Next Page'}} <span class="fa fa-long-arrow-right"></span> </a></li>
+      # endif
     </ul>
   # endif
 # endmacro
@@ -78,8 +83,8 @@
     <span class="fa fa-fw fa-linkedin" title="LinkedIn"></span>
   # elif auth_id.startswith('microsoft')
     <span class="fa fa-fw fa-windows" title="Microsoft"></span>
-  # elif auth_id.startswith('facebook')
-    <span class="fa fa-fw fa-facebook" title="Facebook"></span>
+  # elif auth_id.startswith('reddit')
+    <span class="fa fa-fw fa-reddit" title="Reddit"></span>
   # elif auth_id.startswith('twitter')
     <span class="fa fa-fw fa-twitter" title="Twitter"></span>
   # elif auth_id.startswith('yahoo')

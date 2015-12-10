@@ -3,36 +3,21 @@
   "dependencies": {
     "angular": "~1",
     "angular-route": "~1",
-    "angular-bootstrap-show-errors": "~2",
-    "angular-ladda": "~0",
     "angular-bootstrap": "~0",
     "bootstrap": "~3",
     "font-awesome": "~4",
-    "lesshat": "~3",
-    "moment": "~2",
-    "ladda": "~0",
-    "spinjs": "~2"
+    "jquery": "~2",
+    "moment": "~2"
   },
   "overrides": {
     "bootstrap": {
-      "main": [
-        "less/**",
-        "fonts/*"
-      ]
+      "main": ["less/**", "fonts/*", "js/*.js"]
     },
-    "angular-ui-bootstrap": {
-      "main": [
-        "*.js"
-      ]
+    "angular-bootstrap": {
+      "main": ["*.js"]
     },
     "font-awesome": {
-      "main": [
-        "less/*",
-        "fonts/*"
-      ]
+      "main": ["less/*", "fonts/*"]
     }
-  },
-  "resolutions": {
-    "angular": "~1"
   }
 }
