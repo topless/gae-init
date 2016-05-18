@@ -4,6 +4,12 @@
   font-family: 'Press Start 2P', cursive;
 }
 
+@stack-overflow-hover: #FF9900;
+@linkedin-hover: #007BB6;
+@github-hover: #444444;
+@bitbucket-hover: #205081;
+
+
 ul {
   margin: 0;
   padding: 0;
@@ -12,5 +18,9 @@ ul {
   li {
     display: inline;
     margin-right: 20px;
+    .btn-cv-stack-overflow {&:hover {color: @stack-overflow-hover;}}
+    .btn-cv-linkedin {&:hover {color: @linkedin-hover;}}
+    .btn-cv-github {&:hover {color: @github-hover;}}
+    .btn-cv-bitbucket {&:hover {color: @bitbucket-hover;}}
   }
 }

@@ -1,13 +1,11 @@
 <div class="jumbotron">
   <div class="container text-center">
-    <h3 class="top-brand"><small>{{welcome.CONFIG_DB.brand_name}}</small></h3>
-    <h3 class="top-brand">Christos Topaloudis</h3>
+    <h2 class="top-brand">Christos Topaloudis</h2>
     <h2>
       <ul class="cv-list">
-        <li ng-repeat="btn in welcome.cvButtons" >
-          <a href="https://{{btn.url}}" title="{{btn.title}}" target="_blank">
-            <i class="fa fa-{{btn.icon}}"></i>
-          </a>
+        <li ng-repeat="btn in welcome.cvButtons">
+          <a ng-href="https://{{btn.url}}" class="btn-cv-{{btn.icon}}" title="{{btn.title}}" target="_blank">
+            <i class="fa fa-{{btn.icon}}"></i></a>
         </li>
       </ul>
     </h2>
