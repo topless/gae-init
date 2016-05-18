@@ -1,14 +1,16 @@
 class Header extends Controller
 
-  constructor: ->
+  constructor: (@CONFIG_DB, @$location, @authService) ->
     console.info 'Header controller'
-
+    @buttons =
+      welcome: url: '/', active: false
+      feedback: url: '/feedback/', active: false
 
 class AppHeader extends Directive
 
   constructor: ->
     header =
-      restrict: 'A'
+      restrict: 'E'
       templateUrl: 'app/shared/header/header.html'
       controller: 'headerController'
       controllerAs: 'header'

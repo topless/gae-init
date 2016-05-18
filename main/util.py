@@ -41,7 +41,7 @@ def get_next_url(next_url=''):
   })
   next_url = next_url or args['next'] or args['next_url']
   do_not_redirect_urls = [flask.url_for(u) for u in [
-    'signin', 'signup', 'user_forgot', 'user_reset',
+    'user_forgot', 'user_reset',
   ]]
   if next_url:
     if any(url in next_url for url in do_not_redirect_urls):
@@ -96,7 +96,7 @@ def get_dbs(
     limit, start_cursor=cursor.reversed() if cursor else None, keys_only=True
   )
   prev_cursor = prev_cursor.reversed().to_websafe_string() \
-    if prev_cursor and cursor else None
+      if prev_cursor and cursor else None
   return list(model_dbs), {'next': next_cursor, 'prev': prev_cursor}
 
 

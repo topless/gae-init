@@ -1,4 +1,6 @@
+
 class Welcome extends Controller
+
   constructor: (@CONFIG_DB) ->
     @cvButtons = [
       {title: 'Stack Overflow', url: 'careers.stackoverflow.com/kristop', icon: 'stack-overflow'}

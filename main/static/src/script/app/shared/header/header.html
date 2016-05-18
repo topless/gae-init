@@ -1,34 +1,52 @@
+
 <header class="navbar navbar-default navbar-fixed-top" role="banner">
   <div class="container">
     <div class="navbar-header">
+      <!-- TODO: Check what is happening in lower resolutions, handle toggle -->
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a ng-click="header.goto(header.buttons.welcome.url)" class="navbar-brand">
+      <a ng-href="{{header.buttons.welcome.url}}" class="navbar-brand">
         {{header.CONFIG_DB.brand_name}}
       </a>
     </div>
 
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <li class="{{header.buttons.feedback.active}}" ng-show="header.CONFIG_DB.feedback_email">
-          <a ng-click="header.goto(header.buttons.feedback.url)">
+        <li ng-if="header.CONFIG_DB.feedback_email" class="{{header.buttons.feedback.active}}">
+          <a ng-href="{{header.buttons.feedback.url}}">
             <span class="fa fa-comment"></span> Feedback
           </a>
         </li>
       </ul>
 
-      <!-- Show only if user is signed in -->
-      <ul class="nav navbar-nav navbar-right">
+      <!-- TODO: Implement the user dropdown menu here. -->
+      <ul ng-if="!header.authService.userDB" class="nav navbar-nav navbar-right">
         <li>
-          <a ng-click="header.openSigninModal()">
-            <span class="fa fa-sign-in"></span> Sign in
-          </a>
+          <a href="/signin"><span class="fa fa-sign-in"></span> Sign in</a>
         </li>
       </ul>
+
+      <ul ng-if="header.authService.userDB" class="nav navbar-nav navbar-right">
+        <li uib-dropdown>
+          <a href="#" uib-dropdown-toggle>{{header.authService.userDB.name}}<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li ng-if="header.authService.userDB.admin">
+              <a href="/admin"><span class="fa fa-lock"></span> Admin</a>
+            </li>
+            <li ng-if="header.authService.userDB.admin" class="hide">
+              <a href="/search"><span class="fa fa-search"></span> Search</a>
+            </li>
+            <li>
+              <a href="/signout" target="_self"><span class="fa fa-sign-out"></span> Sign out</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
     </nav>
   </div>
 </header>
