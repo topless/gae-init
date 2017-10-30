@@ -2,6 +2,7 @@ var path = require('path');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ManifestRevisionPlugin = require('manifest-revision-webpack-plugin');
+var DashboardPlugin = require('webpack-dashboard/plugin');
 
 var rootAssetPath = './main/static/assets';
 
@@ -47,6 +48,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new DashboardPlugin(),
     new ExtractTextPlugin('[name].[chunkhash].css'),
     new ManifestRevisionPlugin(path.join('main/static', 'manifest.json'), {
       rootAssetPath: rootAssetPath,
