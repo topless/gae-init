@@ -7,16 +7,20 @@
     "babel-preset-react": "^6.3.13",
     "css-loader": "^0.14.4",
     "extract-text-webpack-plugin": "^0.8.1",
+    "file-loader": "^1.1.5",
     "image-webpack-loader": "^1.4.0",
     "manifest-revision-webpack-plugin": "^0.0.5",
     "script-loader": "^0.6.1",
     "style-loader": "^0.12.3",
+    "url-loader": "^0.6.2",
     "webpack": "^1.12.12",
     "webpack-dashboard": "^1.0.0",
     "webpack-dev-server": "^1.9.0"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "react": "~16.0.0",
+    "react-bootstrap": "^0.31.5",
     "react-dom": "~16.0.0"
   },
   "license": "MIT",
@@ -27,7 +31,7 @@
   },
   "scripts": {
     "postinstall": "python run.py -d",
-    "dev": "webpack-dashboard -- webpack-dev-server --inline --progress --colors --port 2992 --content-base main/dist",
+    "dev": "webpack-dashboard -- webpack-dev-server --inline --progress --colors --port 2992",
     "server": "dev_appserver.py main/ --port 3000",
     "build": "webpack --progress --profile --colors",
     "deploy": "gcloud app deploy main/*.yaml"
