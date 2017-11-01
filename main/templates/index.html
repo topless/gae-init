@@ -3,6 +3,7 @@
   <head></head>
   <body>
     <div id="root"></div>
+    {{ javascript_tag('vendor_js') | safe }}
     {{ javascript_tag('app_js') | safe }}
   </body>
   <!-- Bootstrap is imported by React, so styles later to override, till we scss -->
