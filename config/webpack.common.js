@@ -8,9 +8,14 @@ var rootAssetPath = "./main/static/assets";
 
 module.exports = {
   entry: {
-    app_js: rootAssetPath + "/script/App.js",
+    app_js: rootAssetPath + "/script/app.js",
     app_css: rootAssetPath + "/style/main.css",
-    vendor_js: ["react", "react-dom", "react-bootstrap"]
+    vendor_js: [
+      "axios",
+      "react-bootstrap",
+      "react-dom",
+      "react",
+    ]
   },
   output: {
     path: "./main/static/dist",
@@ -36,7 +41,8 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loader: 'file-loader?name=assets/[name].[hash].[ext]'
+        loader: "file?context=" + rootAssetPath + "&name=[path][name].[hash].[ext]",
+        // loader: 'file-loader?name=assets/[name].[hash].[ext]'
       },
       // {
       //   test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,

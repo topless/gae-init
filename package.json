@@ -15,15 +15,16 @@
     "url-loader": "^0.6.2",
     "webpack": "^1.12.12",
     "webpack-dashboard": "^1.0.0",
-    "webpack-dev-server": "^1.9.0"
+    "webpack-dev-server": "^1.9.0",
+    "rimraf": "^2.6.2",
+    "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "axios": "^0.17.0",
     "bootstrap": "^3.3.7",
     "react": "~16.0.0",
     "react-bootstrap": "^0.31.5",
-    "react-dom": "~16.0.0",
-    "rimraf": "^2.6.2",
-    "webpack-merge": "^4.1.0"
+    "react-dom": "~16.0.0"
   },
   "license": "MIT",
   "name": "gae-init",
