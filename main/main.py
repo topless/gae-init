@@ -1,27 +1,15 @@
 # coding: utf-8
 
 import flask
-from flask_webpack import Webpack
 import config
 import util
 
-webpack = Webpack()
 
 class GaeRequest(flask.Request):
   trusted_hosts = config.TRUSTED_HOSTS
 
 app = flask.Flask(__name__)
 app.config.from_object(config)
-
-params = {
-  'DEBUG': config.DEVELOPMENT,
-  'WEBPACK_MANIFEST_PATH': './static/manifest.json'
-}
-app.config.update(params)
-if config.PRODUCTION:
-  app.config.update({'WEBPACK_ASSETS_URL': '/p/dist/'})
-
-webpack.init_app(app)
 app.request_class = GaeRequest if config.TRUSTED_HOSTS else flask.Request
 
 app.jinja_env.line_statement_prefix = '#'
