@@ -62,5 +62,3 @@ skip_files:
 - ^(.*/)?index\.yaml
 - ^(.*/)?index\.yml
 - ^lib/.*
-- ^static/assets/.*
-- ^static/src/.*

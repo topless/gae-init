@@ -21,12 +21,23 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App with gae-init'
     }
+  },
+
+  created () {
+    axios.get(`/api/v1/test/`)
+    .then(response => {
+      console.log(response.data)
+    })
+    .catch(e => {
+      console.error(e)
+    })
   }
 }
 </script>
