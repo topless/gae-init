@@ -68,3 +68,11 @@ $ gulp deploy --project=foo --version=bar
 
 After the build you can test production build by starting the backend server
 and visit http://localhost:3000
+
+[google app engine sdk for python]: https://developers.google.com/appengine/downloads
+[linux]: http://www.ubuntu.com
+[macos]: http://www.apple.com/macos/
+[node.js]: http://nodejs.org/
+[pip]: http://www.pip-installer.org/
+[virtualenv]: http://www.virtualenv.org/
+[windows]: http://windows.microsoft.com/
