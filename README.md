@@ -19,7 +19,9 @@ In a dedicated terminal start your python appengine server, to serve the API.
 
 ```bash
 $ cd /path/to/project-name/backend
-$ ./run -p 3000 -s
+$ npm install
+# If you run it on a different port, change frontend/config/index.js accordingly
+$ gulp -p 3000
 ```
 
 To test it visit `http://localhost:3000/api/v1/test/` in your browser.
@@ -33,6 +35,7 @@ will be working with is served from webpack port `:8080` and not from our
 flask which responds at port `:3000`. During development the calls on `:8080` are
 getting proxied to `:3000`. The configuration is at `frontend/config/index.js`.
 
+In another terminal start your front end development.
 ``` bash
 $ cd /path/to/project-name/frontend
 
@@ -41,6 +44,11 @@ $ npm install
 
 # serve with hot reload at localhost:8080
 $ npm run dev
+
+# the production build will be automatically executed when deploy and
+# will be created at backend/main/static/dist/
+# --report shows bundle analyzer report, and can be omitted
+$ npm run build --report
 ```
 
 When you start the dev server `http://localhost:8080` will open in your browser to test the application.
@@ -54,12 +62,8 @@ and the necessary `HTML` templates are automatically generated at `backend/main/
 (These files do not need to be commited to source control, only to be deployed)
 
 ```bash
-# build for production with minification, use --report at will for bundle analyzer report
-$ cd /path/to/project-name/frontend
-$ npm run build --report
-
-$ cd /path/to/project-name
-$ gcloud app deploy backend/main/*.yaml project --foo --version=bar
+$ cd /path/to/project-name/backend
+$ gulp deploy --project=foo --version=bar
 ```
 
 After the build you can test production build by starting the backend server
