@@ -12,7 +12,7 @@ from main import app
 ###############################################################################
 @app.route('/')
 def welcome():
-  return flask.render_template('vue/index.html', html_class='index')
+  return flask.render_template('welcome.html', html_class='index')
 
 
 ###############################################################################
