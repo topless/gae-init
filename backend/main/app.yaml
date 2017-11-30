@@ -21,8 +21,8 @@ error_handlers:
 
 handlers:
 - url: /favicon.ico
-  static_files: static/img/favicon.ico
-  upload: static/img/favicon.ico
+  static_files: static/dist/favicon.ico
+  upload: static/dist/favicon.ico
 
 - url: /robots.txt
   static_files: static/robots.txt
