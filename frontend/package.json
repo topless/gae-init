@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.config.json",
     "prebuild": "rimraf ../backend/main/static/dist && rimraf ../backend/main/templates/index.html",
     "build": "ng build -d /p/dist/",
     "postbuild": "mv dist/index.html ../backend/main/templates && mv dist/ ../backend/main/static",
