@@ -1,15 +1,12 @@
 gae-init-vue
-============
 
-Requirements
-------------
+## Requirements
 
-  - [Google App Engine SDK for Python][]
-  - [Node.js][], [pip][], [virtualenv][]
-  - [macOS][] or [Linux][] or [Windows][]
+* [Google App Engine SDK for Python][]
+* [Node.js][], [pip][], [virtualenv][]
+* [macOS][] or [Linux][] or [Windows][]
 
-Make sure you have all of the above or refer to the docs on how to
-[install the requirements](http://docs.gae-init.appspot.com/requirement/).
+Make sure you have all of the above or refer to the docs on how to [install the requirements](http://docs.gae-init.appspot.com/requirement/).
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -26,7 +23,7 @@ $ gulp -p 3000
 
 To test it visit `http://localhost:3000/api/v1/test/` in your browser.
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+---
 
 Running the Frontend Development Environment
 --------------------------------------------
